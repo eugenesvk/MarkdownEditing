@@ -65,7 +65,7 @@ contexts:
         - include: block_raw
         - include: heading
         - include: separator
-    - match: '^[ ]{0,3}([*+-])(?=\s)'
+    - match: '^[ ]{0,3}([*+\-±✗✓])(?=\s)'
       captures:
         1: punctuation.definition.list_item.markdown
       push:
@@ -193,7 +193,7 @@ contexts:
             (?x)^
             (?= \s*$
             | [ ]{,3}(?<marker>[-*_])([ ]{,2}\k<marker>){2,}[ \t]*+$
-            | [ ]{,3}([*+-])(?=\s)
+            | [ ]{,3}([*+\-±✗✓])(?=\s)
             | [ ]{,3}([0-9]+\.)(?=\s)
             | [ ]{,3}>
             )
@@ -848,7 +848,7 @@ contexts:
         - match: ^\s*$
           pop: true
         - include: inline
-        - match: '\G\s*([*\-+]|[0-9]+\.)\s+'
+        - match: '\G\s*([*\-+±✗✓]|[0-9]+\.)\s+'
           captures:
             1: punctuation.definition.list_item.markdown
         - include: scope:text.html.basic
